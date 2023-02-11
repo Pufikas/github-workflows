@@ -10,17 +10,17 @@ jobs:
     steps:
     - name: Check the repo
       uses: actions/checkout@v2
-    - name: Generate the profile
-      run: cat README.md
-    env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      WAKATIME_TOKEN: ${{ secrets.WAKATIME_TOKEN }}
+    - name: Configure Git
       run: |-
-        git diff
         git config --global user.email "dominykas.guzys@gmail.com"
         git config --global user.name "Pufikas"
+    - name: Generate the profile
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        WAKATIME_TOKEN: ${{ secrets.WAKATIME_TOKEN }}
+      run: |-
+        git diff
         git pull
         git add -A
         git commit -m "Daily: update" || exit 0
         git push
-    
