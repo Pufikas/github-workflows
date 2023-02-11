@@ -8,11 +8,12 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Check the repo
+    uses: actions/checkout@v2
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       WAKATIME_TOKEN: ${{ secrets.WAKATIME_TOKEN }}
-    name: Commit and push
+  - name: Commit and push
     run: |-
         git diff
         git config --global user.email "dominykas.guzys@gmail.com"
