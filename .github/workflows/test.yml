@@ -19,7 +19,6 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         WAKATIME_TOKEN: ${{ secrets.WAKATIME_TOKEN }}
       run: |-
-        git diff
         git pull
         git add -A
         git commit -m "Daily: update" || exit 0
