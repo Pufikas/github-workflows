@@ -2,7 +2,7 @@ name: testing
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   schedule:
-    - cron: '5 * * * *' # 5mins
+    - cron: '* * * * *' # 5mins
 
 jobs:
   generate:
