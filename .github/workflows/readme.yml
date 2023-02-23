@@ -28,6 +28,7 @@ jobs:
     - name: Update README
       run: |-
         node main.js
+        echo "1" > ./readme.md
         cat readme.md
 
     - name: Commit and push if changed
