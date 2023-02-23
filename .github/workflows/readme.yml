@@ -28,7 +28,7 @@ jobs:
     - name: Update README
       run: |-
         node main.js
-        echo "1" > ./readme.md
+        awk '{$1=$1+1}1' testfile.txt > tmp && mv tmp testfile.txt
         cat readme.md
 
     - name: Commit and push if changed
